@@ -1,0 +1,51 @@
+# ROS2 / colcon build outputs
+/# ROS 2 / colcon build outputs
+/build/
+install/
+log/
+**/build/
+**/install/
+**/log/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ROS runtime artifacts
+*.bag
+*.db3
+**/build/
+**/install/
+**/log/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ROS / runtime artifacts
+*.bag
+*.db3
