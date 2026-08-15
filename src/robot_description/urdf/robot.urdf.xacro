@@ -4,7 +4,8 @@
 
   <!-- Include Gazebo Parameters -->
   <xacro:include filename="$(find robot_description)/urdf/robot_gazebo.xacro" />
-
+  <xacro:include filename="$(find robot_description)/urdf/robot_ros2_control.xacro" />
+  
   <link name="base_footprint"/>
   
   <link name="base_link">
