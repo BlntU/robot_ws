@@ -13,9 +13,9 @@ public:
             "/cmd_vel", 10,
             std::bind(&CmdVelBridge::cmdVelCallback, this, std::placeholders::_1));
 
-        // Publisher to /bumperbot_controller/cmd_vel (TwistStamped)
+        // Publisher to /robot_controller/cmd_vel (TwistStamped)
         cmd_vel_pub_ = this->create_publisher<geometry_msgs::msg::TwistStamped>(
-            "/robot_controller/cmd_vel", 10);
+            "/robot_diff_controller/cmd_vel", 10);
     }
 
 private:
