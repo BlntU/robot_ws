@@ -7,6 +7,30 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(Eigen3 REQUIRED)
+
+include_directories(include)
+include_directories(${EIGEN3_INCLUDE_DIRS})
+
+add_executable(simple_controller src/simple_controller.cpp)
+ament_target_dependencies(simple_controller rclcpp geometry_msgs std_msgs ${Eigen_LIBRARIES})
+
+add_executable(vel_bridge src/vel_bridge.cpp)
+ament_target_dependencies(vel_bridge rclcpp geometry_msgs)
+
+install(
+  DIRECTORY include
+  DESTINATION include
+)
+
+install(
+  TARGETS simple_controller vel_bridge
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 install(
   DIRECTORY config launch
   DESTINATION share/${PROJECT_NAME}
