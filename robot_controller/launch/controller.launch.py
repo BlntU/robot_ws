@@ -14,9 +14,12 @@ def generate_launch_description():
         "wheel_separation",
         default_value="0.17"
     )
-    use_custom_controller_arg = DeclareLaunchArgument(
+    
+    # True: Simple Controller 
+    # False : diff_drive_controller
+    use_custom_controller_arg = DeclareLaunchArgument( 
         "use_custom_controller",
-        default_value="False"
+        default_value="True"
     )
 
     wheel_radius = LaunchConfiguration("wheel_radius")
