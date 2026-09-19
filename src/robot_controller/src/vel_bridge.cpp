@@ -14,6 +14,8 @@ public:
             std::bind(&CmdVelBridge::cmdVelCallback, this, std::placeholders::_1));
 
         // Publisher to /robot_controller/cmd_vel (TwistStamped)
+        // /robot_diff_controller/cmd_vel ----> for, diff drive topic
+        // /robot_controller/cmd_vel -----> for, simple controller topic 
         cmd_vel_pub_ = this->create_publisher<geometry_msgs::msg::TwistStamped>(
             "/robot_controller/cmd_vel", 10);
     }

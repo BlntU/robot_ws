@@ -55,13 +55,13 @@ void SimpleController::velCallback(const geometry_msgs::msg::TwistStamped & msg)
 // daha sonra "w" ile, ROBOTUN Linear ve açısal hızı hesaplanır
 void SimpleController::jointCallback(const sensor_msgs::msg::JointState & msg)
 {
-    double dp_left = msg.position.at(1) - left_wheel_prev_pos_;                   // Bir önceki teker açısı ile şimdiki pozisyon arasındaki farkı hesaplar (Radyan cinsinden)
-    double dp_right = msg.position.at(0) - right_wheel_prev_pos_;                 // Bir önceki teker açısı ile şimdiki pozisyon arasındaki farkı hesaplar (radyan cinsinden)
+    double dp_left = msg.position.at(0) - left_wheel_prev_pos_;                   // Bir önceki teker açısı ile şimdiki pozisyon arasındaki farkı hesaplar (Radyan cinsinden)
+    double dp_right = msg.position.at(1) - right_wheel_prev_pos_;                 // Bir önceki teker açısı ile şimdiki pozisyon arasındaki farkı hesaplar (radyan cinsinden)
 
     rclcpp::Time msg_time = msg.header.stamp;                                     // fonksiyonun çalıştığında gelen mesajın zamanını alır
     rclcpp::Duration dt = msg_time - prev_time_;                                  // Bu zamanı fonksiyonun önceki çalışma zamanından çıkartır ve ne kadar zaman geçtiğini hesaplar.
-    left_wheel_prev_pos_ = msg.position.at(1);                                    // Yeni teker pozisyonu ve zaman, fonksiyonun sonunda eski pozisyon olarak atanır
-    right_wheel_prev_pos_ = msg.position.at(0);
+    left_wheel_prev_pos_ = msg.position.at(0);                                    // Yeni teker pozisyonu ve zaman, fonksiyonun sonunda eski pozisyon olarak atanır
+    right_wheel_prev_pos_ = msg.position.at(1);
     prev_time_ = msg_time;
 
     double w_right = dp_right/dt.seconds();
