@@ -91,12 +91,14 @@ def generate_launch_description():
         condition=IfCondition(use_custom_controller),
     )
 
-    teleop = Node(
-        package="robot_controller",
-        executable="vel_bridge"
-    )
+
+    # teleop = Node(
+    #     package="robot_controller",
+    #     executable="vel_bridge"
+    # )
 
     noisy_controller_launch = OpaqueFunction(function=noisy_controller)
+
 
     return LaunchDescription([
         use_custom_controller_arg,
@@ -108,6 +110,6 @@ def generate_launch_description():
         simple_controller_cpp,
         joint_state_spawner,
         simple_controller,
-        teleop,
+        # teleop,
         noisy_controller_launch
     ])

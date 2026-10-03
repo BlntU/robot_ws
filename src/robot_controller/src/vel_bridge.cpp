@@ -28,7 +28,7 @@ private:
         twist_stamped->header.stamp = this->now();
         twist_stamped->header.frame_id = "base_link";  
         twist_stamped->twist = *msg;
-
+        
         // Publish
         cmd_vel_pub_->publish(std::move(twist_stamped));
     }

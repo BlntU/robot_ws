@@ -9,7 +9,7 @@
             </hardware>
         </xacro:if>
         
-        <xacro:unless>
+        <xacro:unless value="$(arg is_sim)">
             <hardware>
                 <plugin>robot_firmware/RobotInterface</plugin>
                 <param name="port">/dev/ttyACM0</param>
